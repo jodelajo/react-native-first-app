@@ -8,10 +8,10 @@ function GoalInput({ onAddGoal, visible, onCancel }) {
     setEnteredGoal(enteredText);
   }
 
-function addGoalHandler(){
+  function addGoalHandler() {
     onAddGoal(enteredGoal);
-    setEnteredGoal('')
-}
+    setEnteredGoal("");
+  }
 
   return (
     <Modal visible={visible} animationType="slide">
@@ -22,8 +22,14 @@ function addGoalHandler(){
           onChangeText={goalInputHandler}
           value={enteredGoal}
         />
-        <Button title="cancel" color="red" onPress={onCancel}/>
-        <Button title="add" onPress={addGoalHandler} />
+        <View style={styles.buttonContainer}>
+          <View style={styles.button}>
+            <Button title="cancel" color="red" onPress={onCancel} />
+          </View>
+          <View style={styles.button}>
+            <Button title="add" onPress={addGoalHandler} />
+          </View>
+        </View>
       </View>
     </Modal>
   );
@@ -40,6 +46,14 @@ const styles = StyleSheet.create({
     padding: 10,
     width: "80%",
     marginBottom: 10,
+  },
+  buttonContainer: {
+    width: "60%",
+    flexDirection: "row",
+    justifyContent: "space-around",
+  },
+  button: {
+    width: "40%",
   },
 });
 
